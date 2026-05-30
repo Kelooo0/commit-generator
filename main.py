@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 import subprocess, sys
 from logger import log
+
 load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
@@ -43,4 +44,4 @@ def main() -> Any:
 
 
 if __name__ == "__main__":
-    pass
+    main()

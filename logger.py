@@ -1,6 +1,6 @@
 import logging
 
-LOG_FILENAME = "app.log"
+log_filename = "app.log"
 
 
 def logger_setup():
@@ -10,7 +10,6 @@ def logger_setup():
 
     logger.setLevel(logging.DEBUG)
 
-    log_filename = LOG_FILENAME
     file_handler = logging.FileHandler(log_filename, mode="w", encoding="utf-8")
     file_handler.setLevel(logging.DEBUG)
 

@@ -1,6 +1,7 @@
 import subprocess, sys
 from logger import log
 
+
 def git_generate_commit() -> str:
     try:
         log.debug("Running subprocess")

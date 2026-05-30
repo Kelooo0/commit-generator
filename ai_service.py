@@ -3,6 +3,7 @@ from google.genai import types
 import sys
 from logger import log
 
+
 def ai_generate_commit(diff, API_KEY) -> str:
     log.debug("Setting up AI client")
     client = genai.Client(api_key=API_KEY)
@@ -24,6 +25,8 @@ def ai_generate_commit(diff, API_KEY) -> str:
         return response.text.strip()
 
     except Exception as exc:
-        log.error("An AI service error occured while generating response")
+        log.error(
+            f"An AI service error occured while generating response, error: {exc}"
+        )
         print("An error occured while generating AI response")
         sys.exit(1)
