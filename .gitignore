@@ -18,3 +18,5 @@ migrations/
 *.pot
 *.pyc
 notes.txt
+*.bat
+*.sh
