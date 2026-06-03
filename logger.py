@@ -1,6 +1,8 @@
 import logging
+from pathlib import Path
 
-log_filename = "app.log"
+BASE_DIR = Path(__file__).resolve().parent
+FILENAME = BASE_DIR / "app.log"
 
 
 def logger_setup():
@@ -10,7 +12,7 @@ def logger_setup():
 
     logger.setLevel(logging.DEBUG)
 
-    file_handler = logging.FileHandler(log_filename, mode="w", encoding="utf-8")
+    file_handler = logging.FileHandler(FILENAME, mode="w", encoding="utf-8")
     file_handler.setLevel(logging.DEBUG)
 
     formatter = logging.Formatter(
