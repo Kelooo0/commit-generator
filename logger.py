@@ -27,7 +27,7 @@ def logger_setup():
 
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
-    x = "just an example text"
+
     return logger
 
 
