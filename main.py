@@ -36,7 +36,7 @@ def main():
             subprocess.run(["git", "commit", "-m", commit], check=True)
             log.info("Commited succesfully")
         except subprocess.CalledProcessError:
-            log.exception("An error occured while commiting changes")
+            log.error("An error occured while commiting changes")
             sys.exit(1)
     else:
         log.info("Commiting canceled")

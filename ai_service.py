@@ -26,6 +26,6 @@ def ai_generate_commit(diff, API_KEY):
         )
         return response.text.strip()
 
-    except Exception:
-        log.exception("An AI service error occured while generating response")
+    except Exception as exc:
+        log.error(f"An AI service error occured, {exc}")
         sys.exit(1)
