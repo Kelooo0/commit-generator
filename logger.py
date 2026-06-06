@@ -20,7 +20,14 @@ def logger_setup():
     )
     file_handler.setFormatter(formatter)
 
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_formatter = logging.Formatter("[%(levelname)s] %(message)s")
+    console_handler.setFormatter(console_formatter)
+
     logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
     return logger
 
 

@@ -1,8 +1,10 @@
-import subprocess, sys
+import subprocess
+import sys
+
 from logger import log
 
 
-def git_generate_commit() -> str:
+def git_generate_commit():
     try:
         log.debug("Running subprocess")
         result = subprocess.run(
@@ -11,13 +13,10 @@ def git_generate_commit() -> str:
         diff = result.stdout.strip()
 
         if not diff:
-            log.debug("No changes found")
-            print(
-                "No changes in staging area, Use 'git add <files>' to prepare changes"
-            )
+            log.info("No changes found")
             sys.exit(0)
+
         return diff
     except subprocess.CalledProcessError:
-        log.error("Subprocess error occured")
-        print("This is not a git respository or git is not installed")
+        log.error("This is not a git respository or git is not installed")
         sys.exit(1)
