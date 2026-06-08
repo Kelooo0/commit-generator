@@ -10,8 +10,8 @@ Commit Generator is a CLI tool designed for quick and simple generation of commi
 
 ## Showcase
 
-![Showcase](assets/img/showcase.PNG)
-![Log](assets/img/log2.PNG)
+![Showcase](assets/img/generator1.PNG)
+![Log](assets/img/generator2.PNG)
 
 
 ## Installation

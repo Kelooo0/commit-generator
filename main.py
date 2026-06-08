@@ -53,6 +53,5 @@ def main():
         logger.info("Commiting canceled")
     logger.debug("App end")
 
-
 if __name__ == "__main__":
     main()
