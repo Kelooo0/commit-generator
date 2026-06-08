@@ -2,12 +2,11 @@ import sys
 
 from google import genai
 from google.genai import types
-
-from logger import log
+from loguru import logger
 
 
 def ai_generate_commit(diff, API_KEY):
-    log.debug("Setting up AI client")
+    logger.debug("Setting up AI client")
     client = genai.Client(api_key=API_KEY)
 
     config = types.GenerateContentConfig(
@@ -19,13 +18,14 @@ def ai_generate_commit(diff, API_KEY):
             """,
         temperature=0.2,
     )
-    log.debug("Generating response...")
+    logger.debug("Generating response...")
     try:
         response = client.models.generate_content(
             model="gemini-2.5-flash", contents=diff, config=config
         )
         return response.text.strip()
 
-    except Exception as exc:
-        log.error(f"An AI service error occured, {exc}")
+    except Exception:
+        logger.error("An AI service error occured")
+        logger.opt(exception=True).debug("Exception traceback:")
         sys.exit(1)
